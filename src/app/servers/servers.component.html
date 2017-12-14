@@ -11,6 +11,7 @@
   </div>
   <div class="col-xs-12 col-sm-4">
     <!-- <a routerLink="/servers">Reload page</a> --> <!-- without "/" or with "./" means a relative path, it appends to the last route we where, with "/" its an absolute path-->
+    <button class="btn btn-primary" (click)="onReload()">Reload page</button>
     <app-edit-server></app-edit-server>
     <hr>
     <app-server></app-server>
