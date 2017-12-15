@@ -17,7 +17,7 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'servers', component: ServersComponent },
   { path: 'users', component: UsersComponent },
-  { path: 'users/:id', component: UserComponent }, // ":" indicates its a dinamic part.
+  { path: 'users/:id/:name', component: UserComponent }, // ":" indicates its a dinamic part.
 ];
 @NgModule({
   declarations: [
