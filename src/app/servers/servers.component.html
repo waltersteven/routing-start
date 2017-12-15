@@ -2,11 +2,14 @@
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
       <a
+        [routerLink]="['/servers',5, 'edit']"
+        [queryParams]="{allowEdit: '1'}"
+        fragment = "loading"
         href="#"
         class="list-group-item"
         *ngFor="let server of servers">
         {{ server.name }}
-      </a>
+      </a> <!-- using queryParams property to pass query params as a key value and fragment to set a jump in the page-->
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
