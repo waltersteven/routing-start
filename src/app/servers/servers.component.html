@@ -13,11 +13,15 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
+    <router-outlet></router-outlet> <!-- this is for child routes of servers defined in app.module.ts -->
+
+    <!--  -->
     <!-- <a routerLink="/servers">Reload page</a> --> <!-- without "/" or with "./" means a relative path, it appends to the last route we where, with "/" its an absolute path-->
-    <button class="btn btn-primary" (click)="onReload()">Reload page</button>
+    <!-- <button class="btn btn-primary" (click)="onReload()">Reload page</button>
     <app-edit-server></app-edit-server>
-    <hr>
+    <hr> -->
     <!-- <app-server></app-server> -->
+    <!--  -->
   </div>
 </div>
 
