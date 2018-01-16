@@ -26,7 +26,8 @@ export class ServerComponent implements OnInit {
   }
 
   onEdit(){
-    this.router.navigate(['edit'], {relativeTo: this.route}) //relativeTo in order to navigate relatively (append /edit to the currently route)
+    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'}) //relativeTo in order to navigate relatively (append /edit to the currently route)
+    //queryParamsHandling is for preserve the id of the URL
   }
 
 }
