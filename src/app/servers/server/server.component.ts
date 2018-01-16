@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ServersService } from '../servers.service';
 
 @Component({
@@ -10,7 +10,9 @@ import { ServersService } from '../servers.service';
 export class ServerComponent implements OnInit {
   server: {id: number, name: string, status: string};
 
-  constructor(private serversService: ServersService, private route: ActivatedRoute) { }
+  constructor(private serversService: ServersService, 
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.params['id']; // + is to convert it to a number
@@ -21,6 +23,10 @@ export class ServerComponent implements OnInit {
         this.server = this.serversService.getServer(+params['id']);
       }
     );
+  }
+
+  onEdit(){
+    this.router.navigate(['edit'], {relativeTo: this.route}) //relativeTo in order to navigate relatively (append /edit to the currently route)
   }
 
 }
