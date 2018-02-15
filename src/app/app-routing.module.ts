@@ -36,6 +36,7 @@ const appRoutes: Routes = [
 @NgModule({
     //no need to write declarations because its declared in app.module.ts
     imports: [
+        //RouterModule.forRoot(appRoutes, {useHash:true}) //useHash:true => informs the web server to only care in the url before the # and let Angular to care about the second part. 
         RouterModule.forRoot(appRoutes)
     ],
     exports: [ //what things are going to be accesible from outside
