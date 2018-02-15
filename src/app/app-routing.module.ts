@@ -15,10 +15,16 @@ const appRoutes: Routes = [
     { path: 'users', component: UsersComponent, children: [
       { path: ':id/:name', component: UserComponent }, // ":" indicates its a dinamic part.
     ] }, 
-    { path: 'servers', canActivate: [AuthGuard], component: ServersComponent, children: [ //canActivate: takes all the guards you want to apply to this route, now servers is only accessible if canActivate returns true since loggedIn is true.
-      { path: ':id', component: ServerComponent },
-      { path: ':id/edit', component: EditServerComponent }
-    ] },
+    { 
+        path: 'servers', 
+        //canActivate: [AuthGuard], 
+        canActivateChild: [AuthGuard], //protect a single route or all child routes
+        component: ServersComponent, 
+        children: [ //canActivate: takes all the guards you want to apply to this route, now servers is only accessible if canActivate returns true since loggedIn is true.
+            { path: ':id', component: ServerComponent },
+            { path: ':id/edit', component: EditServerComponent }
+        ] 
+    },
     { path: 'not-found', component: PageNotFoundComponent},  
     { path: '**', redirectTo: '/not-found'}, //catch all paths that the app dont know, make sure it is the last route
 ];
